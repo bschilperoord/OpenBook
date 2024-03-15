@@ -1,0 +1,547 @@
+*{
+    font-family: WorkSans;
+}
+
+div{
+    color: white;
+    font-weight: bolder;
+}
+
+body{
+    background-color: black;
+}
+
+textarea{
+    resize: none;
+}
+
+label{
+    color: white;
+}
+
+#message-thread{
+    background-color: grey;
+    padding: 10px;
+    margin-top: 10px;
+    border: solid black 3px;
+    border-radius: 30px;
+}
+
+.hidden {
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    right: 6%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    width: 220px;
+}
+
+.hidden2 {
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 100px;
+    overflow-y: auto;
+    right: 6%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    width: 220px;
+}
+
+.visible{
+    font-size: 16px;
+    font-weight: bold;
+    position: sticky;
+    top: 10%;
+    right: 6%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    width: 100%;
+    height: 200px;
+}
+
+.visible2{
+    font-size: 16px;
+    font-weight: bold;
+    position: sticky;
+    overflow-y: auto;
+    top: 30%;
+    right: 6%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    width: 100%;
+    height: 200px;
+}
+
+.visible2 a{
+    color: white;
+    text-decoration: none;
+}
+
+#exit-button-weather{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+}
+
+#exit-button-weatherdiv{
+    position: relative;
+}
+
+#exit-button-rss{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+}
+
+#exit-button-rssdiv{
+    position: relative;
+}
+
+#nunllogo{
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sidebar{
+    width: 200px;
+    height: 600px;
+    position: absolute;
+    top: 350px;
+    right: 10%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 15px;
+    background-image: url('./images.jpeg');
+}
+
+#optionsForm{
+    margin-top: 50px;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.8;
+    background-color: black;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 15px;
+    background-image: url('./images.jpeg');
+}
+
+#weatherInfo {
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    right: 6%;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    width: 180px;
+}
+
+#rss-feed{
+    width: 212.5px;
+    height: 300px;
+    overflow: auto;
+    top: 200px;
+    left: 20px;
+    position: absolute;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 15px;
+    background-image: url('./images.jpeg');
+}
+
+#rss-feed a{
+    color: white;
+    text-decoration: none;
+}
+
+#openweathermap{
+    display: block;
+    width: 100px;
+}
+
+.emoji{
+    margin-right: 15px;
+}
+
+#profileimagetable{
+    width: 80px;
+}
+
+#hoverDiv {
+    position: relative;
+    cursor: pointer;
+}
+  
+#popupContent {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f1f1f1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Show the popup content on hover */
+#hoverDiv:hover #popupContent {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+#labelprofilepicture{
+    margin-bottom: 15px;
+    display: block;
+}
+
+#profileimageeditor{
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+#qrcode{
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+#themeswitcher{
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 115px;
+}
+
+#themeswitcher:hover{
+    border: solid red 1px;
+}
+
+#message-content{
+    width: 180px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#blogpost-content{
+    width: 500px;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#editable-content{
+    height: 500px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin-top: 20px;
+    font-size: 16pt;
+}
+
+#image-input{
+    color: white;
+}
+
+#compose-form{
+    padding-top: 20px;
+}
+
+#friendslogo{
+    width: 100px;
+    margin-top: 40px;
+}
+
+#header{
+    background-color: lightgrey;
+    text-align: center;
+    width: 600px;
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 35px;
+    padding-bottom: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    overflow: hidden;
+    color: black;
+}
+
+#body{
+    background-color: black;
+    text-align: center;
+    width: 600px;
+    display: block;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 35px;
+    padding-bottom: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+    overflow-y: auto;
+    height: 500px;
+    color: white;
+}
+
+#chatbox{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid grey 2px;
+    height: 500px;
+    overflow-y: auto;
+    /* background-color:#add8e6; */
+    padding: 35px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-image: url('./images.jpeg');
+    border-radius: 15px;
+}
+
+#loguit{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#vrienden{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#algemenechat{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#pm{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#blogpost{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#settings{
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+#blogpost:hover{
+    text-decoration: underline;
+}
+
+#loguit:hover{
+    text-decoration: underline;
+}
+
+#vrienden:hover{
+    text-decoration: underline;
+}
+
+#algemenechat:hover{
+    text-decoration: underline;
+}
+
+#pm:hover{
+    text-decoration: underline;
+}
+
+#settings:hover{
+    text-decoration: underline;
+}
+
+#profile{
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+#password{
+    margin-left: 0.75%;
+}
+
+#posts{
+    text-align: center;
+    height: 100px;
+    display: block;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#settingsdiv{
+    text-align: center;
+    height: 100px;
+    display: block;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+}
+
+#passwordlabel{
+    margin-left: -0.6%;
+}
+
+#footer{
+    margin-top: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 15px;
+    margin-left: auto;
+}
+
+h1,h2,h3{
+    color: white;
+    text-align: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+h3{
+    margin-top: 20px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.conversation{
+    list-style: none;
+    font-size: 18pt;
+    color: grey;
+    margin: 15px;
+}
+
+.conversation:hover{
+    color: white;
+}
+
+span{
+    font-size: 14pt;
+}
+
+@media (max-width: 767px) {
+
+    #sidebar{
+        width: 100px;
+        height: 500px;
+        left: 10px;
+        top: 162px;
+    }
+
+    #header{
+        width: 400px !important;
+    }
+
+    #chatbox{
+        width: 400px !important;
+    }
+
+    #body{
+        width: 400px !important;
+    }
+
+    #footer{
+        width: 400px !important;
+    }
+
+    h1{
+        width: 300px !important;
+    }
+
+    h2{
+        width: 300px !important;
+    }
+
+    h3{
+        width: 300px !important;
+    }
+
+    #posts{
+        width: 300px !important;
+    }
+
+    .visible{
+        font-size: 12px;
+    }
+
+    .visible2{
+        font-size: 12px;
+    }
+
+
+    #exit-button-weather{
+        width: 25px;
+    }
+
+    #exit-button-rss{
+        width: 25px;
+    }
+
+}
+
+@font-face {
+    font-family: "WorkSans";
+    src: url(WorkSans-VariableFont_wght.ttf) format("truetype");
+}
