@@ -8,7 +8,7 @@ use RobThree\Auth\TwoFactorAuth;
 function hashPassword($password) {
     return hash('sha512', $password);
 }
-
+s
 // Validate and sanitize user input
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username']);
