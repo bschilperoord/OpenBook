@@ -2,7 +2,7 @@ function onImageClick() {
 
   var a = (function() {
     var e = null,
-        c = null,
+        c = null,s
         h = null,
         d = function() {
             e = document.createElement("canvas");
