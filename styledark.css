@@ -545,3 +545,13 @@ span{
     font-family: "WorkSans";
     src: url(WorkSans-VariableFont_wght.ttf) format("truetype");
 }
+
+#winretro{
+    width: 600px;
+    height: 1200px;
+    position: absolute;
+    cursor: move;
+    right: 400px;
+    top: 300px;
+    border: solid 10px black;
+}
