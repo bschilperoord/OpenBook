@@ -52,6 +52,9 @@ if ($conn->connect_error) {
 <?php } else {?>
 <a id="themeswitcher" href="switchtheme.php?theme=light">Switch theme</a>
 <?php } ?>
+
+<iframe id="winretro" src="https://www.winretro.com/" title="WinRetro"></iframe>
+
 <?php
 	// Define user ID safely (assuming it's an integer)
 	$userId = isset($_SESSION['userid']) ? intval($_SESSION['userid']) : 0;
@@ -110,7 +113,7 @@ if ($conn->connect_error) {
      ?>
     <div id="header">
         
-        <h1>OpenBook</h1>
+        <h1 style="margin-bottom: 25px;">OpenBook</h1>
         <?php
 
         $userId = $_SESSION['userid'];

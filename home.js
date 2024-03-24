@@ -33,6 +33,63 @@ $(function() {
         });
     });
 
+        var dragItem = document.getElementById('winretro');
+        var active = false;
+        var currentX = 0;
+        var currentY = 0;
+        var initialX = 0;
+        var initialY = 0;
+        var xOffset = 0;
+        var yOffset = 0;
+    
+        function setTranslate(xPos, yPos) {
+            dragItem.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+        }
+    
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            if (e.target === dragItem) {
+                active = true;
+            }
+        }
+    
+        function dragEnd() {
+            initialX = currentX;
+            initialY = currentY;
+            active = false;
+            localStorage.setItem('dragItemX', initialX);
+            localStorage.setItem('dragItemY', initialY);
+        }
+    
+        function drag(e) {
+            if (active) {
+                e.preventDefault();
+    
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+    
+                setTranslate(currentX, currentY);
+            }
+        }
+    
+        function restorePosition() {
+            var xPos = parseInt(localStorage.getItem('dragItemX'), 10);
+            var yPos = parseInt(localStorage.getItem('dragItemY'), 10);
+            if (!isNaN(xPos) && !isNaN(yPos)) {
+                xOffset = xPos;
+                yOffset = yPos;
+                setTranslate(xPos, yPos);
+            }
+        }
+    
+        dragItem.addEventListener("mousedown", dragStart, false);
+        document.addEventListener("mouseup", dragEnd, false);
+        document.addEventListener("mousemove", drag, false);
+        restorePosition();
+
     $(document).on('click', '.like-btn-blogposts', function(event) {
         event.preventDefault(); // Prevent any default behavior of the link
         
