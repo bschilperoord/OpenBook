@@ -33,63 +33,6 @@ $(function() {
         });
     });
 
-        var dragItem = document.getElementById('winretro');
-        var active = false;
-        var currentX = 0;
-        var currentY = 0;
-        var initialX = 0;
-        var initialY = 0;
-        var xOffset = 0;
-        var yOffset = 0;
-    
-        function setTranslate(xPos, yPos) {
-            dragItem.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-        }
-    
-        function dragStart(e) {
-            initialX = e.clientX - xOffset;
-            initialY = e.clientY - yOffset;
-            if (e.target === dragItem) {
-                active = true;
-            }
-        }
-    
-        function dragEnd() {
-            initialX = currentX;
-            initialY = currentY;
-            active = false;
-            localStorage.setItem('dragItemX', initialX);
-            localStorage.setItem('dragItemY', initialY);
-        }
-    
-        function drag(e) {
-            if (active) {
-                e.preventDefault();
-    
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-                xOffset = currentX;
-                yOffset = currentY;
-    
-                setTranslate(currentX, currentY);
-            }
-        }
-    
-        function restorePosition() {
-            var xPos = parseInt(localStorage.getItem('dragItemX'), 10);
-            var yPos = parseInt(localStorage.getItem('dragItemY'), 10);
-            if (!isNaN(xPos) && !isNaN(yPos)) {
-                xOffset = xPos;
-                yOffset = yPos;
-                setTranslate(xPos, yPos);
-            }
-        }
-    
-        dragItem.addEventListener("mousedown", dragStart, false);
-        document.addEventListener("mouseup", dragEnd, false);
-        document.addEventListener("mousemove", drag, false);
-        restorePosition();
-
     $(document).on('click', '.like-btn-blogposts', function(event) {
         event.preventDefault(); // Prevent any default behavior of the link
         
@@ -123,6 +66,82 @@ $(function() {
             }
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const element = document.getElementById('winretrowrapper');
+    let posX = 0, posY = 0;
+    let isResizing = false;
+
+    // Restore the position of the element from local storage
+    restorePosition();
+
+    element.onmousedown = function(e) {
+        e.preventDefault();
+        posX = e.clientX;
+        posY = e.clientY;
+
+        document.onmousemove = function(ev) {
+            if (ev.shiftKey) {
+                isResizing = true;
+                resizeElement(ev);
+            } else {
+                isResizing = false;
+                dragElement(ev);
+            }
+        };
+
+        document.onmouseup = stopDragElement;
+    };
+
+    function dragElement(e) {
+        if (!isResizing) {
+            e.preventDefault();
+            let dx = posX - e.clientX;
+            let dy = posY - e.clientY;
+            posX = e.clientX;
+            posY = e.clientY;
+            element.style.top = (element.offsetTop - dy) + "px";
+            element.style.left = (element.offsetLeft - dx) + "px";
+
+            // Save the new position to localStorage
+            localStorage.setItem('dragItemX', element.style.left.replace('px', ''));
+            localStorage.setItem('dragItemY', element.style.top.replace('px', ''));
+        }
+    }
+
+    function resizeElement(e) {
+        if (isResizing) {
+            e.preventDefault();
+            let dx = e.clientX - posX;
+            let dy = e.clientY - posY;
+
+            // Implementing minimum width and height of 100px
+            let newWidth = Math.max(element.offsetWidth + dx, 100);
+            let newHeight = Math.max(element.offsetHeight + dy, 100); // Adjusting height based on mouse movement
+
+            element.style.width = `${newWidth}px`;
+            element.style.height = `${newHeight}px`; // Applying the new height
+
+            posX = e.clientX;
+            posY = e.clientY;
+        }
+    }
+
+    function stopDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+        isResizing = false; // Reset resizing flag
+    }
+
+    function restorePosition() {
+        var xPos = parseInt(localStorage.getItem('dragItemX'), 10);
+        var yPos = parseInt(localStorage.getItem('dragItemY'), 10);
+        if (!isNaN(xPos) && !isNaN(yPos)) {
+            element.style.left = xPos + 'px';
+            element.style.top = yPos + 'px';
+        }
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
