@@ -219,7 +219,7 @@ label{
 }
 
 #qrcode{
-    display: block;
+    display: none;
     width: 100px;
     margin-left: auto;
     margin-right: auto;
