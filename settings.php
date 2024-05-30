@@ -38,12 +38,13 @@ $conn = new mysqli("$servernamesql", "$usernamesql", "$passwordsql", "$databases
             <form id="settingsform" method="POST" action="savesettings.php" enctype="multipart/form-data">
                 <!-- Add your settings fields here -->
                 <label for="name">Username:</label>
-                <input type="text" name="name" id="name" value="">
+                <input type="text" name="name" id="name" value="<?php echo $_SESSION['loggedinuser']; ?>" readonly>
                 <br>
                 <label id="passwordlabel" for="name">Password:</label>
                 <input type="password" name="password" id="password" value="">
 
                 <label style="display: block; margin-top: 10px;">Add 2FA security</label>
+                <button id="change2fa">Generate QR-code</button>
 
                 <!-- Add more settings fields as needed -->
                 <?php
@@ -69,7 +70,7 @@ $conn = new mysqli("$servernamesql", "$usernamesql", "$passwordsql", "$databases
                 echo '<br><img id="qrcode" src="'.$qrCodeUrl.'" alt= "QR Code">';
                 ?>
 
-                <label id="labelprofilepicture" for="profile-image">Profile Picture:</label>
+                <label id="labelprofilepicture" for="profile-image">Profile Picture</label>
                 <input type="file" id="profile-image" name="profileimage" accept="image/*" style="display:none">
                 <?php
 
@@ -84,7 +85,8 @@ $conn = new mysqli("$servernamesql", "$usernamesql", "$passwordsql", "$databases
 
                 // Fetch the result
                 if ($stmt->fetch()) {
-                ?> 
+                ?>
+                <button id="changeprofileimg">Change profile image</button>
                 <img id="profileimageeditor" src="<?php echo htmlspecialchars($profileimage); ?>" alt="profile picture" style="cursor:pointer" onclick="document.getElementById('profile-image').click()">
                 <img src="" alt="image" id="profanitycheck" style="display: none;" />
                 <?php

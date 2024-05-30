@@ -93,6 +93,16 @@ a.init();
 
 document.addEventListener("DOMContentLoaded", async function () {
 
+  document.getElementById("change2fa").addEventListener("click", function(event) {
+    event.preventDefault(); // This prevents the default form submission behavior
+    var qrcode = document.getElementById("qrcode");
+    if (qrcode.style.display === "block") {
+      qrcode.style.display = "none";
+    } else {
+      qrcode.style.display = "block";
+    }
+  });  
+
   // Add event listener to the file input
   const fileInput = document.getElementById("profile-image");
   fileInput.addEventListener("change", handleFileInputChange);
