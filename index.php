@@ -53,8 +53,11 @@ if ($conn->connect_error) {
 <a id="themeswitcher" href="switchtheme.php?theme=light">Switch theme</a>
 <?php } ?>
 
-<iframe id="winretro" src="https://www.winretro.com/" title="WinRetro"></iframe>
-
+	
+<div id="winretrowrapper">
+	<iframe id="winretro" src="https://www.winretro.com/" title="WinRetro" resize></iframe>
+</div>
+	
 <?php
 	// Define user ID safely (assuming it's an integer)
 	$userId = isset($_SESSION['userid']) ? intval($_SESSION['userid']) : 0;

@@ -269,7 +269,7 @@ label{
 }
 
 #qrcode{
-    display: none;
+    display: block;
     width: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -566,12 +566,18 @@ span{
     src: url(WorkSans-VariableFont_wght.ttf) format("truetype");
 }
 
-#winretro{
-    width: 600px;
-    height: 1200px;
+#winretro {
+	aspect-ratio: 16/9;
+    height: 100%; /* Adjusted for demonstration */
+	width: 100%;
+    resize: both;
+    background-color: lightgrey; /* Just for visibility */
+}
+
+#winretrowrapper {
     position: absolute;
-    cursor: move;
     right: 400px;
     top: 300px;
-    border: solid 10px black;
+	width: 400px;
+	height: 500px;
 }
