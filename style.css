@@ -147,7 +147,7 @@ label{
     #sidebar{
         width: 100px;
         height: 500px;
-        left: 10px;
+        left: 10px !important;
         top: 162px;
     }
 
