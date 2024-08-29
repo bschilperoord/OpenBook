@@ -219,7 +219,7 @@ label{
 }
 
 #qrcode{
-    display: none;
+    display: block;
     width: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -544,4 +544,20 @@ span{
 @font-face {
     font-family: "WorkSans";
     src: url(WorkSans-VariableFont_wght.ttf) format("truetype");
+}
+
+#winretro {
+    width: 600px;
+    height: 300px; /* Adjusted for demonstration */
+    cursor: move;
+    border: solid 10px black;
+    resize: both;
+    overflow: hidden;
+    background-color: lightgrey; /* Just for visibility */
+}
+
+#winretrowrapper {
+    position: absolute;
+    right: 400px;
+    top: 300px;
 }
